@@ -1,0 +1,12 @@
+.product-detail {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+}
+
+.product-detail img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  margin-right: 20px;
+}

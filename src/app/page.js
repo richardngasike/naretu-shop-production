@@ -1,66 +1,36 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import Header from '../components/Header';
+import Sidebar from '../components/Sidebar';
+import BannerCarousel from '../components/BannerCarousel';
+import Section from '../components/Section';
+import Footer from '../components/Footer';
+import { CartProvider } from '../lib/CartContext';
+import products from '../data/products';
 
 export default function Home() {
+  const flashDeals = products.filter(p => p.price < 100).slice(0, 8);
+  const bestSellers = products.sort((a, b) => b.price - a.price).slice(0, 8);
+  const newArrivals = products.slice(-8);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <CartProvider>
+      <div>
+        <Header />
+        <div style={{ display: 'flex', minHeight: '100vh' }}>
+          <Sidebar />
+          <main style={{ flex: 1, padding: '20px' }}>
+            <BannerCarousel />
+
+            <Section title="⚡ Flash Deals - Limited Time!" products={flashDeals} />
+            <Section title="🔥 Best Sellers" products={bestSellers} />
+            <Section title="🆕 New Arrivals 2026" products={newArrivals} />
+            <Section title="🏆 Top Rated Products" products={products.slice(5, 13)} />
+            <Section title="💡 Unique Gadgets" products={products.filter(p => p.category === 'Computing').slice(0, 6)} />
+          </main>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <Footer />
+      </div>
+    </CartProvider>
   );
 }

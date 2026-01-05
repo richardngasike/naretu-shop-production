@@ -1,0 +1,190 @@
+.footer {
+  position: relative;
+  background-color: #0a1f2e;
+  background-image: url('/footer-bg.jpg'); /* Your local image in public/footer-bg.jpg */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Nice parallax effect */
+  color: white;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+/* Semi-transparent overlay - makes background slightly visible but text clear */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 31, 46, 0.78); /* Dark blue with 78% opacity - adjust last value for more/less visibility */
+  z-index: 1;
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+/* All footer content stays above the overlay */
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.company-info h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ff9900;
+}
+
+.company-info p {
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+  font-size: 15px;
+}
+
+.social-links-footer h3 {
+  margin: 30px 0 15px;
+  color: #ff9900;
+}
+
+.social-links-footer .icons {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links-footer a {
+  color: white;
+  font-size: 28px;
+  transition: all 0.3s;
+}
+
+.social-links-footer a:hover {
+  color: #ff9900;
+  transform: translateY(-4px);
+}
+
+.operational-map h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ff9900;
+}
+
+.operational-map p {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.map-container {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kenya-map {
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Bottom Section */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.bottom-links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bottom-links a:hover {
+  color: #ff9900;
+}
+
+.developer-credit {
+  text-align: center;
+  color: #aaa;
+}
+
+.developer-credit a {
+  color: #ff9900;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.developer-credit a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-info p {
+    justify-content: center;
+  }
+
+  .social-links-footer .icons {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    padding: 50px 15px;
+  }
+
+  .company-info h2 {
+    font-size: 30px;
+  }
+
+  .operational-map h3 {
+    font-size: 24px;
+  }
+
+  .map-container {
+    padding: 15px;
+  }
+}
