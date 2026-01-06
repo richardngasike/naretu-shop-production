@@ -13,11 +13,11 @@ export const metadata = {
   openGraph: {
     title: 'Naretu - Shop Online in Kenya with Fast Delivery',
     description: 'Best prices on mobiles, fashion, home appliances, electronics & more. Nationwide delivery across all 47 counties. Pay safely with M-Pesa.',
-    url: 'https://naretu.co.ke',
+    url: 'https://naretu.com',
     siteName: 'Naretu',
     images: [
       {
-        url: '/og-image.jpg', // Place a 1200x630 image in public/og-image.jpg
+        url: '/og-image.jpg', 
         width: 1200,
         height: 630,
         alt: 'Naretu - Kenya\'s Leading Online Marketplace',
@@ -53,11 +53,11 @@ export const metadata = {
 
   // Canonical URL
   alternates: {
-    canonical: 'https://naretu.co.ke',
+    canonical: 'https://naretu.com',
   },
 
   // Additional Keywords (helps Google understand context)
-  keywords: 'online shopping Kenya, buy phones online, fashion Kenya, appliances Nairobi, M-Pesa payment, nationwide delivery Kenya, cheap electronics Kenya, Naretu',
+  keywords: 'naretu online shopping Kenya, naretu buy phones online, naretu fashion Kenya, appliances Nairobi, M-Pesa payment, nationwide delivery Kenya, cheap electronics Kenya, Naretu buy online, naretu online shop, naretu samburu, naretu kenya',
 
   // Theme Color (for browser UI)
   themeColor: '#007bff',
