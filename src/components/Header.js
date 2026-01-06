@@ -1,44 +1,39 @@
 'use client';
-
 import { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaTiktok, FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FiShoppingCart } from 'react-icons/fi'; // Added cart icon
 import { useCart } from '@/lib/CartContext';
-import products from '@/data/products'; // Import all products
+import products from '@/data/products';
 import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const { cart } = useCart();
   const cartCount = cart.length;
   const router = useRouter();
-
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const searchRef = useRef(null);
 
-  // Live filtering as user types
   useEffect(() => {
     if (searchQuery.trim() === '') {
       setFilteredProducts([]);
       setShowDropdown(false);
       return;
     }
-
     const query = searchQuery.toLowerCase();
     const results = products.filter(product =>
       product.name.toLowerCase().includes(query) ||
       product.category.toLowerCase().includes(query) ||
       product.description.toLowerCase().includes(query)
     );
-
-    setFilteredProducts(results.slice(0, 8)); // Limit to 8 results
+    setFilteredProducts(results.slice(0, 8));
     setShowDropdown(true);
   }, [searchQuery]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -119,7 +114,6 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Floating Search Results Dropdown */}
             {showDropdown && filteredProducts.length > 0 && (
               <div className="search-dropdown">
                 <div className="dropdown-header">
@@ -159,9 +153,15 @@ export default function Header() {
           <div className="user-actions">
             <Link href="/account" className="action-link">Account</Link>
             <Link href="/help" className="action-link">Help</Link>
+            
+            {/* Updated Cart Link with Icon */}
             <Link href="/cart" className="action-link cart-link">
-              Cart
-              {cartCount > 0 && <span className="cart-count">({cartCount})</span>}
+              <div className="cart-icon-container">
+                <FiShoppingCart size={22} />
+                {cartCount > 0 && (
+                  <span className="cart-badge">{cartCount}</span>
+                )}
+              </div>
             </Link>
           </div>
         </div>
