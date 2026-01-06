@@ -45,8 +45,8 @@ const products = [
   { id: 28, name: 'LED Desk Lamp', price: 1559, category: 'Home & Office', image: '/products/desk-lamp.jpeg', description: 'Eye-caring, wireless charging base.' },
 
   // Gaming
-  { id: 19, name: 'PlayStation 6', price: 599, category: 'Gaming', image: '/products/ps6-concept.jpg', description: 'Next-gen gaming console with ray tracing.' },
-  { id: 42, name: 'Gaming Headset Wireless', price: 179, category: 'Gaming', image: '/products/gaming-headset.jpg', description: 'Surround sound, RGB lighting, detachable mic.' },
+  { id: 19, name: 'PlayStation 6', price: 599, category: 'Gaming', image: '/products/ps5.webp', description: 'Next-gen gaming console with ray tracing.' },
+  { id: 42, name: 'Gaming Headset Wireless', price: 179, category: 'Gaming', image: '/products/headset-w.webp', description: 'Surround sound, RGB lighting, detachable mic.' },
 
   // Supermarket & More
   { id: 21, name: 'Coffee Maker Automatic', price: 149, category: 'Supermarket', image: '/products/coffee-maker.jpg', description: 'Bean-to-cup, milk frother included.' },
@@ -65,7 +65,7 @@ const products = [
   { id: 45, name: 'Smart Doorbell Camera', price: 199, category: 'Home & Office', image: '/products/doorbell-camera.jpeg', description: '1080p HD, night vision, two-way audio.' },
   { id: 46, name: 'Air Purifier HEPA', price: 249, category: 'Home & Office', image: '/products/air-purifier.jpeg', description: 'Covers 500 sq ft, smart sensor, quiet mode.' },
   { id: 47, name: 'Electric Bike 2026', price: 201499, category: 'Unique Gadgets', image: '/products/electric-bike.jpeg', description: '750W motor, 80km range, full suspension.' },
-  { id: 48, name: 'VR Headset Standalone', price: 799, category: 'Gaming', image: '/products/vr-headset.jpg', description: '6K display, hand tracking, no PC required.' },
+  { id: 48, name: 'VR Headset Standalone', price: 799, category: 'Gaming', image: '/products/vr-headset.webp', description: '6K display, hand tracking, no PC required.' },
 ];
 
 export default products;
