@@ -57,7 +57,7 @@ export const metadata = {
   },
 
   // Additional Keywords (helps Google understand context)
-  keywords: 'naretu online shopping Kenya, naretu buy phones online, naretu fashion Kenya, appliances Nairobi, M-Pesa payment, nationwide delivery Kenya, cheap electronics Kenya, Naretu buy online, naretu online shop, naretu samburu, naretu kenya',
+  keywords: 'naretu online shopping Kenya, naretu, naretu, naretu buy phones online, naretu fashion Kenya, appliances Nairobi, M-Pesa payment, nationwide delivery Kenya, cheap electronics Kenya, Naretu buy online, naretu online shop, naretu samburu, naretu kenya',
 
   // Theme Color (for browser UI)
   themeColor: '#007bff',
