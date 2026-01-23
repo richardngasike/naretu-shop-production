@@ -92,8 +92,8 @@ export default function Header() {
             <Image
               src="/naretulogo.png"
               alt="Naretu Logo"
-              width={180}
-              height={100}
+              width={130}
+              height={60}
               priority
             />
           </Link>
@@ -152,7 +152,11 @@ export default function Header() {
           {/* Right Links */}
           <div className="user-actions">
             <Link href="/account" className="action-link">Account</Link>
-            <Link href="/help" className="action-link">Help</Link>
+            <Link href="/category/computing" className="action-link">Laptops</Link>
+            <Link href="/category/phones-tablets" className="action-link">Phones</Link>
+            <Link href="/category/fashion" className="action-link">Fashion</Link>
+             <Link href="/category/tvs-audio" className="action-link">Tvs </Link>
+           
             
             {/* Updated Cart Link with Icon */}
             <Link href="/cart" className="action-link cart-link">

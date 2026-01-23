@@ -5,7 +5,7 @@ export default function Banner() {
     <div className="banner">
       <div className="banner-text">
         <h1>NEW YEAR'S DEALS UNWRAPPED</h1>
-        <p>Unique Products From $10</p>
+        <p>Unique Products From Ksh 130</p>
       </div>
       <div className="banner-images">
         <img src="https://placehold.co/200x300" alt="Product 1" />

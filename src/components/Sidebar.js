@@ -25,7 +25,7 @@ export default function Sidebar() {
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleLinkClick = () => {
-    if (isOpen) setIsOpen(false); // Close mobile menu after clicking any link
+    if (isOpen) setIsOpen(false);
   };
 
   return (
@@ -52,6 +52,7 @@ export default function Sidebar() {
                 : `/category/${cat.name.toLowerCase().replace(/ & /g, '-')}`;
 
             return (
+              
               <Link
                 key={index}
                 href={href}
