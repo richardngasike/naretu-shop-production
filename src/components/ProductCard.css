@@ -129,9 +129,10 @@
 /* Mid-range tablets & larger phones */
 @media (max-width: 1024px) {
   .products-row {
-    gap: 10px;
-    padding: 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
   .product-title {
     font-size: 12.8px;
   }
@@ -140,9 +141,10 @@
 /* Most phones – still 3 columns */
 @media (max-width: 768px) {
   .products-row {
-    gap: 8px;
-    padding: 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
   .product-card {
     padding: 8px;
     border-radius: 8px;
@@ -166,9 +168,10 @@
 /* Small phones (≤ ~480px) – tighter but still 3 columns */
 @media (max-width: 480px) {
   .products-row {
-    gap: 7px;
-    padding: 8px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
   .product-card {
     padding: 7px;
     min-height: 220px;
@@ -191,9 +194,10 @@
 /* Very narrow phones (≤ 360px) – extremely compact, but still 3 */
 @media (max-width: 360px) {
   .products-row {
-    gap: 6px;
-    padding: 6px;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
   .product-card {
     padding: 6px;
     border-radius: 7px;
