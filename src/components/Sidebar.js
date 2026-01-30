@@ -7,16 +7,13 @@ import Link from 'next/link';
 const categories = [
   { name: 'All Products', icon: '🏪' },
   { name: 'Phones & Tablets', icon: '📱' },
+  { name: 'Computing', icon: '💻' },
   { name: 'TVs & Audio', icon: '📺' },
   { name: 'Appliances', icon: '🧊' },
   { name: 'Health & Beauty', icon: '💄' },
   { name: 'Home & Office', icon: '🏠' },
   { name: 'Fashion', icon: '👗' },
-  { name: 'Computing', icon: '💻' },
   { name: 'Gaming', icon: '🎮' },
-  { name: 'Supermarket', icon: '🛒' },
-  { name: 'Baby Products', icon: '👶' },
-  { name: 'Unique Gadgets', icon: '🤖' },
 ];
 
 export default function Sidebar() {

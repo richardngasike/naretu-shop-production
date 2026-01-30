@@ -1,4 +1,4 @@
-// components/ProductDetail.jsx
+
 import './ProductDetail.css';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -45,8 +45,8 @@ export default function ProductDetail({ product }) {
             <Image
               src={mainImage}
               alt={product.name}
-              width={600}
-              height={600}
+              width={300}
+              height={300}
               priority
               className="main-product-image"
             />

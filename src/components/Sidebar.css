@@ -1,7 +1,7 @@
 /* Desktop Sidebar - Sticky & Scrollable */
 .sidebar {
-  width: 260px;
-  background-color: #ffffff;
+  width: 240px;
+  background-color: #04046ee2;
   border-right: 1px solid #eee;
   position: sticky;
   top: 0; /* Sticks to top after header */
@@ -19,9 +19,9 @@
 .sidebar-item {
   display: flex;
   align-items: center;
-  padding: 14px 24px;
+  padding: 8px 18px;
   text-decoration: none;
-  color: #333;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -29,14 +29,14 @@
 }
 
 .sidebar-item:hover {
-  background-color: #f8f9fa;
-  color: #007bff;
+  background-color: orange;
+  color: #ffffff;
   border-left-color: #007bff;
   padding-left: 30px;
 }
 
 .sidebar-item .icon {
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 16px;
   width: 32px;
   text-align: center;

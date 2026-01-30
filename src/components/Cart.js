@@ -81,6 +81,7 @@ export default function Cart() {
         <Link href="/" className="continue-shopping-btn">
           Continue Shopping
         </Link>
+        <div className='refresh'>Refresh if Cart not displaying</div>
       </div>
     );
   }
@@ -150,7 +151,8 @@ export default function Cart() {
             {/* Payment Options */}
             <div className="payment-options">
               <h3>Secure Payment Options</h3>
-              <button className="pay-btn mpesa" onClick={() => openPaymentModal('mpesa')}>
+               <div className='payment-buttons'>
+                <button className="pay-btn mpesa" onClick={() => openPaymentModal('mpesa')}>
                 <Image src="/mpesa-logo.png" alt="M-Pesa" width={150} height={50} />
               </button>
               <button className="pay-btn card" onClick={() => openPaymentModal('card')}>
@@ -159,6 +161,8 @@ export default function Cart() {
               <button className="pay-btn paypal" onClick={() => alert('PayPal checkout coming soon!')}>
                 <Image src="/paypal.png" alt="PayPal" width={100} height={30} />
               </button>
+
+               </div>
             </div>
 
             <button
