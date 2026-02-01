@@ -6,8 +6,10 @@ import Link from 'next/link';
 
 const categories = [
   { name: 'All Products', icon: '🏪' },
+  { name: 'Laptops', icon: '💻' },
+  { name: 'Laptopstickers', icon: '🎉' },
   { name: 'Phones & Tablets', icon: '📱' },
-  { name: 'Computing', icon: '💻' },
+  { name: 'Desktops', icon: '💻' },
   { name: 'TVs & Audio', icon: '📺' },
   { name: 'Appliances', icon: '🧊' },
   { name: 'Health & Beauty', icon: '💄' },

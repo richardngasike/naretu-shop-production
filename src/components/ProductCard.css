@@ -3,14 +3,9 @@
    ========================= */
 .products-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);     /* 3 columns → always */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  padding: 12px;
-  max-width: 1200px;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
-
 /* =========================
    PRODUCT CARD
    ========================= */
@@ -26,7 +21,8 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  min-height: 260px;     
+  min-height: 260px;  
+  min-width: 0;   
  
 }
 
@@ -128,10 +124,10 @@
 
 /* Mid-range tablets & larger phones */
 @media (max-width: 1024px) {
-  .products-row {
+  /* .products-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
+} */
 
   .product-title {
     font-size: 12.8px;

@@ -91,15 +91,102 @@ const products = [
     description: 'Lightweight cordless stick vacuum with powerful 180W suction, up to 60 minutes runtime, HEPA filtration for allergies, multiple attachments, and easy wall-mount charging. Makes cleaning quick and effortless in any home.' 
   },
 
-  // Computing
+  // Laptops
   { 
     id: 8, 
-    name: 'Gaming Laptop RTX 5090', 
-    price: 320000, 
-    category: 'Computing', 
-    image: '/products/gaming-laptop.webp', 
-    description: 'Beast-mode gaming/creator laptop with latest Intel Core i9, 64GB DDR5 RAM, NVIDIA RTX 5090 GPU, 240Hz QHD+ display, RGB keyboard, advanced cooling, and massive storage. Built for serious gamers and video editors.' 
+    name: 'Modern HP Rhyzen 5', 
+    price: 30000, 
+    category: 'Laptops', 
+    image: '/products/laptops/rhyzen5.jpeg', 
+    description: 'Modern Hp rhyzen with 16GB RAM, 256SSD, 13inch' 
   },
+
+  { 
+    id: 8, 
+    name: 'Hp SPectre Pro G2', 
+    price: 47000, 
+    category: 'Laptops', 
+    image: '/products/laptops/hpspectrepro.jpeg', 
+    description: 'Coi5 8gb ram 256ssd, 6th generation,Touchscreen x360' 
+  },
+    { 
+    id: 8, 
+    name: 'Hp Zbook 15ug6', 
+    price: 60000, 
+    category: 'Laptops', 
+    image: '/products/laptops/hpzbook.jpeg', 
+    description: 'Coi7 , 8th Generation, 4Gb graphics card, 16Gb Ram, 512GB SSD' 
+  },
+
+    // Laptops stickers
+  { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker1.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker2.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker3.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker5.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker6.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker7.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker8.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+   { 
+    id: 8, 
+    name: 'Laptop Sticker', 
+    price: 1500, 
+    category: 'Laptopstickers', 
+    image: '/products/laptop-stickers/sticker4.jpeg', 
+    description: 'Well Designed, long lasting laptop casing stickers.' 
+  },
+
+
+  //computers
   { 
     id: 9, 
     name: 'UltraBook Pro 16"', 
