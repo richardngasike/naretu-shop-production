@@ -44,11 +44,11 @@ export default function Home() {
             <Sidebar />
             <main style={{ flex: 1, padding: '20px' }}>
               <BannerCarousel />
-              <Section title="⚡ Flash Deals - Limited Time!" products={flashDeals} />
-              <Section title="🔥 Best Sellers" products={bestSellers} />
-              <Section title="🆕 New Arrivals 2026" products={newArrivals} />
-              <Section title="🏆 Top Rated Products" products={products.slice(5, 13)} />
-              <Section title="💡 Unique Gadgets" products={products.filter(p => p.category === 'Computing').slice(0, 6)} />
+              <Section title="Flash Deals - Limited Time!" products={flashDeals} />
+              <Section title="Best Sellers" products={bestSellers} />
+              <Section title="New Arrivals 2026" products={newArrivals} />
+              <Section title="Top Rated Products" products={products.slice(5, 13)} />
+              <Section title="Unique Gadgets" products={products.filter(p => p.category === 'Laptops').slice(0, 6)} />
             </main>
           </div>
           <Footer />

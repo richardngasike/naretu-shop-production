@@ -1,44 +1,40 @@
 'use client';
 
 import { useState } from 'react';
-import { FaShoppingCart, FaCheck } from 'react-icons/fa';
+import { FaShoppingCart, FaCheck, FaHeart } from 'react-icons/fa';
 import './AddToCartButton.css';
-import { useCart } from '@/lib/CartContext'; // adjust path if needed
+import { useCart } from '@/lib/CartContext';
 
 export default function AddToCartButton({ product }) {
   const { addToCart } = useCart();
   const [isAdding, setIsAdding] = useState(false);
-  const [added, setAdded] = useState(false);
+  const [justAdded, setJustAdded] = useState(false);
 
   const handleAddToCart = () => {
-    if (isAdding || added) return;
+    if (isAdding || justAdded) return;
 
     setIsAdding(true);
 
-    // Small delay for visual feedback
+    // Simulate network / animation delay
     setTimeout(() => {
       addToCart(product);
       setIsAdding(false);
-      setAdded(true);
+      setJustAdded(true);
 
-      // Reset "Added" state after 2 seconds
-      setTimeout(() => setAdded(false), 2000);
-    }, 400);
+      // Reset after feedback
+      setTimeout(() => setJustAdded(false), 1800);
+    }, 500);
   };
 
   return (
     <button
-      className={`add-to-cart-btn ${isAdding ? 'adding' : ''} ${added ? 'added' : ''}`}
+      className={`cart-btn ${isAdding ? 'adding' : ''} ${justAdded ? 'added' : ''}`}
       onClick={handleAddToCart}
-      disabled={isAdding || added}
-      aria-label={added ? 'Added to cart' : 'Add to cart'}
+      disabled={isAdding || justAdded}
+      aria-label={justAdded ? 'Added to cart' : 'Add to cart'}
+      title={justAdded ? 'Added!' : 'Add to cart'}
     >
-      <span className="btn-icon">
-        {added ? <FaCheck /> : <FaShoppingCart />}
-      </span>
-      <span className="btn-text">
-        {added ? 'Added!' : isAdding ? 'Adding...' : 'Add to Cart'}
-      </span>
+      {justAdded ? <FaCheck /> : <FaShoppingCart />}
     </button>
   );
 }

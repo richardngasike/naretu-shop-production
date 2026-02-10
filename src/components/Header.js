@@ -1,175 +1,234 @@
 'use client';
+
 import { useState, useEffect, useRef } from 'react';
-import './Header.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaTiktok, FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
-import { FiShoppingCart } from 'react-icons/fi'; // Added cart icon
+import { FaTiktok, FaInstagram, FaFacebookF, FaWhatsapp, FaBars, FaTimes, FaHeart } from 'react-icons/fa';
+import { FiShoppingCart, FiSearch } from 'react-icons/fi';
 import { useCart } from '@/lib/CartContext';
 import products from '@/data/products';
 import { useRouter } from 'next/navigation';
+import './Header.css';
+
+const mobileCategories = [
+  { name: 'All Products', href: '/' },
+  { name: 'Laptops', href: '/category/laptops' },
+  { name: 'Laptop Stickers', href: '/category/laptopstickers' },
+  { name: 'Phones & Tablets', href: '/category/phones-tablets' },
+  { name: 'Desktops', href: '/category/desktops' },
+  { name: 'Designs', href: '/category/designs' },
+  { name: 'TVs & Audio', href: '/category/tvs-audio' },
+  { name: 'Appliances', href: '/category/appliances' },
+  { name: 'Health & Beauty', href: '/category/health-beauty' },
+  { name: 'Home & Office', href: '/category/home-office' },
+  { name: 'Fashion', href: '/category/fashion' },
+  { name: 'Gaming', href: '/category/gaming' },
+  { name: 'Books & Novels', href: '/category/books-novels' },
+  { name: 'Softwares', href: '/category/softwares' },
+];
 
 export default function Header() {
   const { cart } = useCart();
-  const cartCount = cart.length;
+  const cartCount = cart?.length || 0;
   const router = useRouter();
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+
   const searchRef = useRef(null);
 
+  // Search filtering logic
   useEffect(() => {
-    if (searchQuery.trim() === '') {
-      setFilteredProducts([]);
-      setShowDropdown(false);
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      setShowResults(false);
       return;
     }
-    const query = searchQuery.toLowerCase();
-    const results = products.filter(product =>
-      product.name.toLowerCase().includes(query) ||
-      product.category.toLowerCase().includes(query) ||
-      product.description.toLowerCase().includes(query)
-    );
-    setFilteredProducts(results.slice(0, 8));
-    setShowDropdown(true);
+
+    const q = searchQuery.toLowerCase().trim();
+    const filtered = products
+      .filter(p =>
+        p.name?.toLowerCase().includes(q) ||
+        p.category?.toLowerCase().includes(q) ||
+        (p.description || '').toLowerCase().includes(q)
+      )
+      .slice(0, 8);
+
+    setSearchResults(filtered);
+    setShowResults(true);
   }, [searchQuery]);
 
+  // Close dropdown on outside click
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setShowDropdown(false);
+    const handleClickOutside = (e) => {
+      if (searchRef.current && !searchRef.current.contains(e.target)) {
+        setShowResults(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleProductClick = (productId) => {
+  const handleSelect = (id) => {
     setSearchQuery('');
-    setShowDropdown(false);
-    router.push(`/product/${productId}`);
+    setShowResults(false);
+    setShowMobileSearch(false);
+    router.push(`/product/${id}`);
   };
 
-  const formatPrice = (amount) => {
-    return new Intl.NumberFormat('en-KE', {
-      style: 'currency',
-      currency: 'KES',
-      minimumFractionDigits: 0,
-    }).format(amount);
+  const formatPrice = (price) =>
+    new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES', minimumFractionDigits: 0 }).format(price);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(p => !p);
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  const openMobileSearch = () => {
+    setShowMobileSearch(true);
+    setShowResults(true); // show results if query exists
+  };
+
+  const closeMobileSearch = () => {
+    setShowMobileSearch(false);
+    setSearchQuery('');
+    setShowResults(false);
   };
 
   return (
-    <header className="header" ref={searchRef}>
-      {/* Top Bar */}
+    <header className="site-header">
+      {/* Top bar */}
       <div className="top-bar">
-        <div className="top-bar-content">
-          <Link href="/sell" className="top-item">Sell on Naretu</Link>
-          <a href="tel:+254718959781" className="top-item phone-item">
-            📞 +254718959781
-          </a>
-          <div className="social-links">
-            <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-              <FaTiktok />
-            </a>
-            <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <FaInstagram />
-            </a>
-            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <FaFacebookF />
-            </a>
-            <a href="https://wa.me/254718959781" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <FaWhatsapp />
-            </a>
+        <div className="top-bar-inner">
+          <Link href="/sell" className="sell-link">Sell on Naretu</Link>
+          <a href="tel:+254718959781" className="contact-phone">📞 +254 718 959 781</a>
+          <div className="social-icons">
+            <a href="https://tiktok.com/@yourhandle" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+            <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+            <a href="https://facebook.com/yourpage" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+            <a href="https://wa.me/254718959781" target="_blank" rel="noopener noreferrer"><FaWhatsapp /></a>
           </div>
         </div>
       </div>
 
-      {/* Main Header */}
-      <div className="main-header">
-        <div className="main-header-content">
-          {/* Logo */}
-          <Link href="/" className="logo">
-            <Image
-              src="/naretulogo.png"
-              alt="Naretu Logo"
-              width={130}
-              height={60}
-              priority
-            />
+      {/* Main nav */}
+      <div className="main-nav">
+        <div className="nav-container">
+          <Link href="/" className="logo-wrapper">
+            <Image src="/naretulogo.png" alt="Naretu" width={150} height={55} priority className="logo" />
           </Link>
 
-          {/* Search Bar with Dropdown */}
-          <div className="search-container">
-            <div className="search-bar">
+          {/* Desktop search */}
+          <div className="search-desktop" ref={searchRef}>
+            <div className="search-input-wrapper">
+              <FiSearch className="search-icon" />
               <input
-                type="text"
-                placeholder="Search products, brands and categories"
-                className="search-input"
+                type="search"
+                placeholder="Search products, brands, categories…"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => searchQuery && setShowDropdown(true)}
+                onChange={e => setSearchQuery(e.target.value)}
+                onFocus={() => searchQuery && setShowResults(true)}
               />
-              <button className="search-btn" onClick={() => setShowDropdown(true)}>
-                🔍
-              </button>
             </div>
 
-            {showDropdown && filteredProducts.length > 0 && (
-              <div className="search-dropdown">
-                <div className="dropdown-header">
-                  <span>{filteredProducts.length} results found</span>
-                </div>
-                {filteredProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    className="search-result-item"
-                    onClick={() => handleProductClick(product.id)}
-                  >
-                    <Image
-                      src={product.image || '/products/placeholder.jpg'}
-                      alt={product.name}
-                      width={50}
-                      height={50}
-                      className="result-image"
-                    />
-                    <div className="result-details">
-                      <h4>{product.name}</h4>
-                      <p className="result-price">{formatPrice(product.price)}</p>
-                      <p className="result-category">{product.category}</p>
+            {showResults && (
+              <div className="search-results">
+                {searchResults.length > 0 ? (
+                  searchResults.map(p => (
+                    <div key={p.id} className="result-item" onClick={() => handleSelect(p.id)}>
+                      <Image src={p.image || '/placeholder.jpg'} alt={p.name} width={44} height={44} />
+                      <div className="result-text">
+                        <div className="result-name">{p.name}</div>
+                        <div className="result-price">{formatPrice(p.price)}</div>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {showDropdown && filteredProducts.length === 0 && searchQuery && (
-              <div className="search-dropdown empty">
-                <p>No products found for "{searchQuery}"</p>
+                  ))
+                ) : (
+                  <div className="no-results">No products found</div>
+                )}
               </div>
             )}
           </div>
 
-          {/* Right Links */}
-          <div className="user-actions">
+          {/* Desktop actions */}
+          <div className="desktop-actions">
             <Link href="/account" className="action-link">Account</Link>
-            <Link href="/category/computing" className="action-link">Laptops</Link>
-            <Link href="/category/phones-tablets" className="action-link">Phones</Link>
-            <Link href="/category/fashion" className="action-link">Fashion</Link>
-             <Link href="/category/tvs-audio" className="action-link">Tvs </Link>
-           
-            
-            {/* Updated Cart Link with Icon */}
-            <Link href="/cart" className="action-link cart-link">
-              <div className="cart-icon-container">
-                <FiShoppingCart size={22} />
-                {cartCount > 0 && (
-                  <span className="cart-badge">{cartCount}</span>
-                )}
-              </div>
+            <Link href="/wishlist" className="action-icon" title="Wishlist"><FaHeart /></Link>
+            <Link href="/cart" className="action-icon cart" title="Cart">
+              <FiShoppingCart />
+              {cartCount > 0 && <span className="badge">{cartCount}</span>}
             </Link>
+          </div>
+
+          {/* Mobile actions bar */}
+          <div className="mobile-actions">
+            <Link href="/wishlist" className="mobile-btn" title="Wishlist"><FaHeart /></Link>
+            <Link href="/cart" className="mobile-btn cart" title="Cart">
+              <FiShoppingCart />
+              {cartCount > 0 && <span className="badge">{cartCount}</span>}
+            </Link>
+            <button className="mobile-btn search-btn" onClick={openMobileSearch} title="Search">
+              <FiSearch />
+            </button>
+            <button className="mobile-btn menu-btn" onClick={toggleMobileMenu} aria-label="Menu">
+              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile full-screen search overlay */}
+      {showMobileSearch && (
+        <div className="mobile-search-overlay">
+          <div className="mobile-search-header">
+            <button className="close-search" onClick={closeMobileSearch}><FaTimes /></button>
+            <div className="mobile-search-input-wrapper" ref={searchRef}>
+              <FiSearch className="search-icon" />
+              <input
+                type="search"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                autoFocus
+              />
+            </div>
+          </div>
+
+          <div className="mobile-search-results">
+            {searchResults.length > 0 ? (
+              searchResults.map(p => (
+                <div key={p.id} className="result-item" onClick={() => handleSelect(p.id)}>
+                  <Image src={p.image || '/placeholder.jpg'} alt={p.name} width={50} height={50} />
+                  <div className="result-text">
+                    <div className="result-name">{p.name}</div>
+                    <div className="result-price">{formatPrice(p.price)}</div>
+                  </div>
+                </div>
+              ))
+            ) : searchQuery.trim() ? (
+              <div className="no-results">No products found</div>
+            ) : null}
+          </div>
+        </div>
+      )}
+
+      {/* Mobile slide-out menu */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-header">
+          <button onClick={closeMobileMenu}><FaTimes /></button>
+          <span>Menu</span>
+        </div>
+        <nav>
+          {mobileCategories.map((cat, i) => (
+            <Link key={i} href={cat.href} onClick={closeMobileMenu}>
+              {cat.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      {mobileMenuOpen && <div className="backdrop" onClick={closeMobileMenu} />}
     </header>
   );
 }
