@@ -39,7 +39,7 @@ const products = [
     price: 31500, 
     category: 'Laptops', 
     image: '/products/laptops/elitebook840g6.jpeg', 
-    description: '⬆️⬆️Hp EliteBook 850 G6 coi5 8gb ram 256 ssd 8th generation Touch screen '
+    description: 'Hp EliteBook 850 G6 coi5 8gb ram 256 ssd 8th generation Touch screen '
   },
 
     { 
@@ -48,7 +48,7 @@ const products = [
     price: 49999, 
     category: 'Laptops', 
     image: '/products/laptops/hpelitebook840g8.jpeg', 
-    description: '❤️❤️Hp Elitebook 840 G8 coi7 16gb Ram 256 ssd 11th generation  '
+    description: 'Hp Elitebook 840 G8 coi7 16gb Ram 256 ssd 11th generation  '
   },
 
     { 
@@ -57,9 +57,9 @@ const products = [
     price: 45500, 
     category: 'Laptops', 
     image: '/products/laptops/hpelitebook840g7.jpeg', 
-    description: `🔥🔥Hp-Elitebook 840 G7
-Coi7 10th Generation
-16gbram256 gb ssd  `
+    description: `Hp-Elitebook 840 G7
+    Coi7 10th Generation
+    16gbram256 gb ssd  `
   },
 
     // Laptops stickers

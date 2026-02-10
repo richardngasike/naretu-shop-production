@@ -1,7 +1,7 @@
 .footer {
   position: relative;
   background-color: #0a1f2e;
-  background-image: url('/footer-bg.jpg'); /* Your local image in public/footer-bg.jpg */
+  /* background-image: url('/footer-bg.jpg'); */
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Nice parallax effect */

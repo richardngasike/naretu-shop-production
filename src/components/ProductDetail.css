@@ -283,6 +283,24 @@
   border-color: #fecaca;
 }
 
+.Whatsapp-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 25px;
+  border: 0.8px solid #d1d5db;
+  color: #16a34a;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.Whatsapp-icon:hover {
+  background-color: #ef4444;
+  color: white;
+
+}
 /* Extra info */
 .extra-info {
   margin-top: 36px;

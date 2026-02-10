@@ -105,7 +105,3 @@
   }
 }
 
-/* Hide sidebar on desktop mobile-toggle version */
-@media (min-width: 993px) {
-  .sidebar.mobile-open { /* not needed */ }
-}

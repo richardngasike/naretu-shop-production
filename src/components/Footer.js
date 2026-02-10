@@ -48,18 +48,13 @@ export default function Footer() {
             <h3>We Deliver Nationwide</h3>
             <p>Fast & reliable delivery to all 47 counties in Kenya</p>
             <div className="map-container">
-              {/* Fixed: Using a clean, allowed external URL or recommend local */}
-              {/* Option 1: Local image (BEST - download and place in public/images/kenya-map.jpg) */}
-              {/* <Image src="/images/kenya-map.jpg" alt="Map of Kenya - Nationwide Delivery" width={500} height={340} className="kenya-map" /> */}
-
-              {/* Option 2: External (safe host - mappr.co) */}
               <Image
-                src="https://www.mappr.co/wp-content/uploads/2021/01/image-237.jpeg"
+                src= './og-image.jpg'
                 alt="Map of Kenya showing all 47 counties - Naretu delivers nationwide"
                 width={500}
                 height={354}
                 className="kenya-map"
-                unoptimized // Required for external URLs
+                unoptimized
               />
             </div>
           </div>

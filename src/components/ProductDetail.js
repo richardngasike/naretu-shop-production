@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 import AddToCartButton from './AddToCartButton';
 import { FiShare2, FiHeart } from 'react-icons/fi';
 import Link from 'next/link';
+import WishlistButton from './WishlistButton';
+import {FaWhatsapp } from 'react-icons/fa';
+
 
 export default function ProductDetail({ product }) {
   if (!product) {
@@ -215,10 +218,15 @@ export default function ProductDetail({ product }) {
                 <button className="share-btn">
                   <FiShare2 />
                 </button>
+                  <WishlistButton product={product} />
+                  <AddToCartButton product={product} />
+                  <a href="https://wa.me/254718959781" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className='Whatsapp-icon'>
+                            <FaWhatsapp />
+                  </a>
               </div>
 
               <div className="trust-row">
-                <div>✓ Free delivery over KSh 5,000</div>
+              <div>✓ Free delivery over KSh 5,000</div>
         
               </div>
             </div>
@@ -254,8 +262,8 @@ export default function ProductDetail({ product }) {
                 <p>{product.description || 'No description available.'}</p>
                 <ul className="feature-list">
                   <li>High Quality Product</li>
-                  <li>Fast delivery within Nairobi</li>
-                  <li>Compatible with most devices</li>
+                  <li>Fully Tested by proffessionals</li>
+                  <li>Compatible with most dev</li>
                 </ul>
               </div>
             )}

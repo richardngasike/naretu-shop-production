@@ -7,7 +7,6 @@ import WishlistButton from './WishlistButton';   // ← new component
 export default function ProductCard({ product }) {
   return (
     <div className="product-card">
-      {/* Image – clickable to product detail */}
       <Link href={`/product/${product.id}`} className="product-image-link">
         <div className="product-image-wrapper">
           <Image
@@ -23,7 +22,7 @@ export default function ProductCard({ product }) {
         </div>
       </Link>
 
-      {/* Info section */}
+    
       <div className="product-content">
         <h3 className="product-title">
           <Link href={`/product/${product.id}`} className="line-clamp-2">
@@ -38,11 +37,16 @@ export default function ProductCard({ product }) {
         </div>
 
         {/* Centered action buttons: cart + wishlist */}
-        <div className="action-area">
+        <div className='buttons-bg'>
+           <div className="action-area">
           <div className="action-buttons">
             <WishlistButton product={product} />
-            <AddToCartButton product={product} />
+            <AddToCartButton product={product} title='Add to Cart' />          
           </div>
+            <Link href={`/product/${product.id}`} className="details-btn-link">
+           <button className='details-btn' title='Product Details'>Details</button>
+           </Link>  
+        </div>      
         </div>
       </div>
     </div>
